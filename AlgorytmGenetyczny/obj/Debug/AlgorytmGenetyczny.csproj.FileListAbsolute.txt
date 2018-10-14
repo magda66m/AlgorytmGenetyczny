@@ -1,0 +1,7 @@
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.csprojAssemblyReference.cache
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.csproj.CoreCompileInputs.cache
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.exe.config
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.exe
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\bin\Debug\AlgorytmGenetyczny.pdb
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.exe
+C:\Users\smocz\source\repos\AlgorytmGenetyczny\AlgorytmGenetyczny\obj\Debug\AlgorytmGenetyczny.pdb
