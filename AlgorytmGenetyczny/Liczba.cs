@@ -14,7 +14,8 @@ namespace AlgorytmGenetyczny
         public double dlugosclancucha { get; set; }
         public double wartoscX { get; set; }
         public string lancuchBinarny = string.Empty;
-        public List<string> WieleLancuchowBinarnych = new List<string>();
+        public double punkt { get; set; }
+        public double wynikAlgorytmu { get; set; }
 
 
         public Liczba(double k, double l, int p)
@@ -50,26 +51,15 @@ namespace AlgorytmGenetyczny
             return lancuchBinarny;
         }
 
-        public List<string> generujWieleLancuchowBinarnych(int ile, double n)
-        {
-            List<string> DuzoLancuchowBinarnych = new List<string>();
-            for (int i = 0; i < ile; i++)
-                DuzoLancuchowBinarnych.Add(generujLancuchBinarny(n));
-
-            this.WieleLancuchowBinarnych = DuzoLancuchowBinarnych;
-
-            return WieleLancuchowBinarnych;
-        }
-
-        public List<double> zamienNaWartoscDziesietna(string lancuch)
+        public double zamienNaWartoscDziesietna(string lancuch)
         {
             int licznik = 0;
             double wart = 0;
-            List<double> WartosciX = new List<double>();
+            string test = lancuch;
 
             for (int i = ((lancuch.Length)-1); i >= 0; i--)
             {
-                if (lancuch[i] == 1)
+                if (lancuch[i] == '1')
                 {
                     wart += Math.Pow(2, licznik);
                     licznik++;
@@ -79,29 +69,29 @@ namespace AlgorytmGenetyczny
                 {
                     licznik++;
                 }
-                WartosciX[i] += wart;
+      
             }
-                
-            return WartosciX;
+
+            this.wartoscX = wart;
+            return wartoscX;
         }
 
 
-        public double przesuniecieDoPrzedzialu(double x)
+        public double przesuniecieDoPrzedzialu(double x, double n)
         {
+            this.punkt = poczatek + ((koniec - poczatek) * x / (Math.Pow(2, (n - 1))));
 
-            x = poczatek + ((koniec - poczatek) * x / (Math.Pow(2, (dlugosclancucha - 1))));
-
-            return x; //zamienic na tablice czy costam
-
+            return punkt;
         }
 
 
         public double algorytm(double x, double n)
         {
-            double wynik;
             int A = 10;
+            double wynik = A * n;             
             double w = 20 * Math.PI;
-            wynik = A * dlugosclancucha;
+            
+
             for (int i = 0; i <= n; i++)
             {
 
@@ -109,7 +99,8 @@ namespace AlgorytmGenetyczny
 
             }
 
-            return wynik;
+            this.wynikAlgorytmu = wynik;
+            return wynikAlgorytmu;
         }
 
     }
