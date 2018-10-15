@@ -47,7 +47,7 @@ namespace AlgorytmGenetyczny
 
             this.lancuchBinarny = lancuch;
 
-            return lancuch;
+            return lancuchBinarny;
         }
 
         public List<string> generujWieleLancuchowBinarnych(int ile, double n)
@@ -61,26 +61,28 @@ namespace AlgorytmGenetyczny
             return WieleLancuchowBinarnych;
         }
 
-        public double wartoscDziesietna(List<int> lancuch)
+        public List<double> zamienNaWartoscDziesietna(string lancuch)
         {
-            int licznik = 0; // poczatkowy wykladnik potegi 2        
+            int licznik = 0;
             double wart = 0;
+            List<double> WartosciX = new List<double>();
 
-            for (int i = (lancuch.Count - 1); i >= 0; i--)
+            for (int i = ((lancuch.Length)-1); i >= 0; i--)
             {
                 if (lancuch[i] == 1)
                 {
                     wart += Math.Pow(2, licznik);
-                    licznik++; // zwiekszrzenie wykladnika
+                    licznik++;
                 }
 
                 else
                 {
-                    licznik++; // zwiekrzenie wykladnika
+                    licznik++;
                 }
+                WartosciX[i] += wart;
             }
-
-            return wart;
+                
+            return WartosciX;
         }
 
 

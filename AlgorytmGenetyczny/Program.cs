@@ -26,8 +26,10 @@ namespace Algorytm_genetyczny
             Jeden.generujLancuchBinarny(Jeden.dlugosclancucha);
             Console.WriteLine(Jeden.lancuchBinarny);
 
-            Jeden.generujWieleLancuchowBinarnych(4, Jeden.dlugosclancucha);
-            Console.WriteLine(Jeden.WieleLancuchowBinarnych);
+            Jeden.zamienNaWartoscDziesietna(Jeden.lancuchBinarny);
+
+            //Jeden.generujWieleLancuchowBinarnych(4, Jeden.dlugosclancucha);
+            //Console.WriteLine(Jeden.WieleLancuchowBinarnych);
 
             //Jeden.wartoscDziesietna(Jeden.generujWieleLancuchowBinarnych(4, Jeden.generujLancuchBinarny(Jeden.dlugosclancucha)));
             //Jeden.przesuniecieDoPrzedzialu(Jeden.wartoscDziesietna(Jeden.WieleLancuchowBinarnych));
