@@ -16,13 +16,16 @@ namespace AlgorytmGenetyczny
         public string lancuchBinarny = string.Empty;
         public double punkt { get; set; }
         public double wynikAlgorytmu { get; set; }
+        public List<double> WielePunktowX { get; set; }
+        public List<double> WieleLancuchow { get; set; }
+        public double ilosclancuchow { get; set; }
 
 
-        public Liczba(double k, double l, int p)
+        public Liczba(double a, double b, int d)
         {
-            this.poczatek = k;
-            this.koniec = l;
-            this.precyzja = p;
+            this.poczatek = a;
+            this.koniec = b;
+            this.precyzja = d;
             Policz();
             
 
@@ -55,7 +58,6 @@ namespace AlgorytmGenetyczny
         {
             int licznik = 0;
             double wart = 0;
-            string test = lancuch;
 
             for (int i = ((lancuch.Length)-1); i >= 0; i--)
             {
@@ -79,29 +81,33 @@ namespace AlgorytmGenetyczny
 
         public double przesuniecieDoPrzedzialu(double x, double n)
         {
-            this.punkt = poczatek + ((koniec - poczatek) * x / (Math.Pow(2, (n - 1))));
+            double dlugoscprzedzialu = koniec - poczatek;
+            double pierwszazmienna = dlugoscprzedzialu * x;
+            double potega = Math.Pow(2, n);
+            double drugazmienna = potega - 1;
+            this.punkt = poczatek + (pierwszazmienna/ drugazmienna);
 
             return punkt;
         }
 
 
-        public double algorytm(double x, double n)
+        public double algorytm(List<double> ListaX, double iloscLancuchow)
         {
             int A = 10;
-            double wynik = A * n;             
+            double wynik = 0;
             double w = 20 * Math.PI;
-            
 
-            for (int i = 0; i <= n; i++)
+
+            for (int i = 0; i < ListaX.Count; i++)
             {
-
-                wynik = Math.Pow(x, 2) - A * Math.Cos(w * x);
+                
+                wynik += (Math.Pow(ListaX[i], 2)) - (A * (Math.Cos(w * ListaX[i])));
 
             }
 
+            wynik += A * iloscLancuchow;
             this.wynikAlgorytmu = wynik;
             return wynikAlgorytmu;
         }
-
     }
 }
