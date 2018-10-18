@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorytmGenetyczny
 {
-    public class Liczba
+    public class Osobnik
     {
         public double poczatek { get; set; }
         public double koniec { get; set; }
@@ -21,16 +21,14 @@ namespace AlgorytmGenetyczny
         public double ilosclancuchow { get; set; }
 
 
-        public Liczba(double a, double b, int d)
+        public Osobnik(double a, double b, int d)
         {
             this.poczatek = a;
             this.koniec = b;
             this.precyzja = d;
             Policz();
-            
 
         }
-
 
         public void Policz()
         {
@@ -58,23 +56,44 @@ namespace AlgorytmGenetyczny
         {
             int licznik = 0;
             double wart = 0;
+            int dlugosclancuchabinarnego = lancuch.Length - 1;
 
-            for (int i = ((lancuch.Length)-1); i >= 0; i--)
+            if (lancuch[0] == '0')
             {
-                if (lancuch[i] == '1')
+                for (int i = ((lancuch.Length) - 1); i >= 0; i--)
                 {
-                    wart += Math.Pow(2, licznik);
-                    licznik++;
-                }
+                    if (lancuch[i] == '1')
+                    {
+                        wart += Math.Pow(2, licznik);
+                        licznik++;
+                    }
 
-                else
-                {
-                    licznik++;
+                    else
+                    {
+                        licznik++;
+                    }
                 }
-      
+            }
+            else if(lancuch[0] == '1')
+            {
+                for (int i = ((lancuch.Length) -1); i >= 1; i--)
+                {
+                    if (lancuch[i] == '1')
+                    {
+                        wart += Math.Pow(2, licznik);
+                        licznik++;
+                    }
+
+                    else 
+                    {
+                        licznik++;
+                    }
+                    
+                }
+                wart -= Math.Pow(2, licznik);
             }
 
-            this.wartoscX = wart;
+                this.wartoscX = wart;
             return wartoscX;
         }
 
@@ -89,7 +108,6 @@ namespace AlgorytmGenetyczny
 
             return punkt;
         }
-
 
         public double algorytm(List<double> ListaX, double iloscLancuchow)
         {
